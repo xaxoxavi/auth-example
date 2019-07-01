@@ -5,17 +5,7 @@
   Time: 17:44
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%!
-    HttpSession session = null;
-%>
-<%
-    session = request.getSession(false);
-    if (session == null || session.getAttribute("auth") == null){
-        response.sendRedirect("/login.jsp");
-    }
 
-
-%>
 <html>
 <head>
     <style>
