@@ -5,6 +5,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(value = "/login")
@@ -17,6 +18,10 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         if ("user".equals(username) && "1234".equals(password)){
+            //El paràmetre true força a crear la sessió
+            HttpSession session = request.getSession(true);
+            session.setAttribute("auth",true);
+
             request.setAttribute("status","Ok!");
         } else {
             request.setAttribute("status","KO!");
